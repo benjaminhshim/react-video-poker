@@ -3,12 +3,10 @@ import './User.css';
 
 import Card from '../Card';
 
-
 export default class User extends Component {
   render() {
     return (
       <div id="user-component">
-        {/* <h1>user</h1> */}
         <div id="user-cards-container">
           {this.props.userCards.map(i => (
             

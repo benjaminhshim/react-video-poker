@@ -7,9 +7,10 @@ import Score from './components/Score';
 
 export default class AppContainer extends Component {
     state = {
-        game: false,
-        score: 0,
+        deck: [],
         user: [],
+        score: 0,    
+        game: false,
         card1: false,
         card2: false,
         card3: false,
@@ -58,9 +59,9 @@ export default class AppContainer extends Component {
 
     newHand = () => {
         console.log('new hand');
+
         this.shuffleCards();
         
-
         this.setState({
             game: false,
             card1: false,
@@ -69,6 +70,8 @@ export default class AppContainer extends Component {
             card4: false,
             card5: false
         })
+
+        // this.shuffleCards();
 
         // CHECK WHICH CARDS ARE HELD BY USER
         var holdArr = [this.state.card1, this.state.card2, this.state.card3, this.state.card4, this.state.card5];
@@ -159,16 +162,39 @@ export default class AppContainer extends Component {
             let suit = i.slice(i.length - 1);
         });
 
-        // SORT THE ARRAY OF NUMBER VALUES AND CHECK FOR DUPLICATES
+        // SORT THE ARRAY OF NUMBER VALUES AND CHECK FOR A PAIR(S)
         const checkStraight = faceArr.sort((a, b) => a - b);
+
+        let isPair = false;
+
         for (let i = 0; i < checkStraight.length; i++) {
             if (checkStraight[i] === checkStraight[i + 1]) {
+                isPair = true;
                 console.log('pair!');
-
-                // UPDATE SCORE
-                const score = this.state.score += 100;
-                this.setState({score})
             }
+        }
+
+        if (isPair) {
+            const score = this.state.score += 100;
+            this.setState({score});
+            isPair = false;
+        }
+
+        // CHECK FOR A STRAIGHT
+        let isStraight = false;
+
+        for (let i = 1; i < checkStraight.length; i++) {
+            if ( (parseInt(checkStraight[i - 1]) + parseInt(checkStraight[i + 1])) / 2 === parseInt(checkStraight[i]) 
+                && parseInt(checkStraight[4]) === parseInt(checkStraight[3]) + 1) {
+              isStraight = true;
+              console.log('straight!');
+            }
+        }
+
+        if (isStraight) {
+            const score = this.state.score += 500;
+            this.setState({score});
+            isStraight = false;
         }
     }
 

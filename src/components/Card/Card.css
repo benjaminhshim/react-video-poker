@@ -2,7 +2,8 @@
   display: inline-block;
   margin-left: 20px;
   width: 50%;
-  height: 350px;
+  min-height: 350px;
+  max-height: auto;
 }
 #card-container #card {
   display: inline-block;
@@ -17,6 +18,15 @@
 }
 #card-container span {
   font-size: 2rem;
+}
+#card-container #card-status {
+  border: 1px solid black;
+  margin-top: 1rem;
+  width: auto;
+  min-height: 3rem;
+}
+#card-container #card-status #card-hold {
+  text-align: center;
 }
 
 /*# sourceMappingURL=Card.css.map */

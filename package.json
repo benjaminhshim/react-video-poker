@@ -6,6 +6,7 @@
     "mdbreact": "^4.8.0",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
+    "react-reveal": "^1.2.2",
     "react-scripts": "2.0.4"
   },
   "scripts": {
@@ -22,5 +23,6 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {}
 }

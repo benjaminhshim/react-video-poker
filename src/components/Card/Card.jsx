@@ -7,6 +7,14 @@ export default class Card extends Component {
     holdCard: false
   }
 
+  componentDidMount() {
+    if (this.props.game) {
+      this.setState({
+        holdCard: false
+      })
+    }
+  }
+
   holdCard = id => {
     this.setState({
       holdCard: !this.state.holdCard
@@ -65,27 +73,17 @@ export default class Card extends Component {
           {suit === 'D' || suit === 'H' ?
 
           <div>
-
             {face === '11' || face === '12' || face === '13' || face === '14' ?
-              <span style={{color: 'red'}}>{faceImg}</span>
-              :
-              <span style={{color: 'red'}}>{face}</span>
+              <span style={{color: 'red'}}>{faceImg}</span> : <span style={{color: 'red'}}>{face}</span>
             }
             <span style={{color: 'red'}}>{suitImg}</span>
-
           </div>
 
           :
 
           <div>
-
-            {face === '11' || face === '12' || face === '13' || face === '14' ?
-              <span>{faceImg}</span>
-            :
-              <span>{face}</span>
-            }            
+            { face === '11' || face === '12' || face === '13' || face === '14' ? <span>{faceImg}</span> : <span>{face}</span> }            
             <span>{suitImg}</span>
-
           </div>
           
           }
@@ -93,9 +91,12 @@ export default class Card extends Component {
           
         </section>
 
-         {this.state.holdCard && this.props.game &&
-          <p id="card-hold">HOLD</p>
-        }
+        <section id="card-status">
+          {this.state.holdCard && this.props.game &&
+            <p id="card-hold">HOLD</p>
+          }
+        </section>
+         
       </div>
     )
   }
