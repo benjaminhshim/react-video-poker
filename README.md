@@ -15,24 +15,3 @@ A simple video poker app created with React. User will be dealt five cards and w
 3. Click **GO** to receive new cards view the 'flop'
 4. Click **DEAL** to start a new round and watch that paper stack
 
-# Demos
-
-### Scrape
-
-![2014-10-22 11_35_09](https://thumbs.gfycat.com/ImaginaryWebbedAmericancurl-size_restricted.gif)
-
-### Save
-
-![2014-10-22 11_35_09](https://thumbs.gfycat.com/BlankSatisfiedCusimanse-size_restricted.gif)
-
-### Add Note
-
-![2014-10-22 11_35_09](https://thumbs.gfycat.com/PleasedFrenchDwarfmongoose-size_restricted.gif)
-
-### Unsave
-
-![2014-10-22 11_35_09](https://thumbs.gfycat.com/ThriftyIllfatedGerbil-size_restricted.gif)
-
-
-
-[Live Demo](https://scrapebeast.herokuapp.com/)
