@@ -1,10 +1,9 @@
 #card-container {
     display: inline-block;
-    margin-left: 20px;
+    margin: 0px 0.5rem;
     width: 50%;
     min-height: 350px;
     max-height: auto;
-    
     
     #card {
         display: inline-block;
@@ -16,24 +15,31 @@
         display: flex;
         align-items: center;
         justify-content: space-around;
+        box-shadow: 0px 4px 2px -1px black;
+        background: white;
 
-        box-shadow: 0px 4px 2px -1px gray;
+        &:hover {
+            cursor: pointer;
+        }
     }
 
     span {
-        font-size: 2rem;
+        font-size: 4rem;
     }
 
     #card-status {
-        border: 1px solid black;
+        border: 2px solid red;
         margin-top: 1rem;
         width: auto;
         min-height: 3rem;
+        max-height: 3rem;
+        background: yellow;
+
 
         #card-hold {
             text-align: center;
-            
-            
+            font-size: 2rem;
+            margin-bottom: 0;
         }
     }
 

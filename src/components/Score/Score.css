@@ -1,5 +1,6 @@
-.score-container {
-  float: right;
+.score-container #score,
+.score-container .win-msg {
+  color: white;
 }
 
 /*# sourceMappingURL=Score.css.map */

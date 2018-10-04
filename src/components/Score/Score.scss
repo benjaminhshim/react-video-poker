@@ -1,3 +1,8 @@
 .score-container {
-    float: right;
+    
+    #score,
+    .win-msg {
+        color: white;
+    }
+
 }

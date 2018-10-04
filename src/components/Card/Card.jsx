@@ -8,17 +8,18 @@ export default class Card extends Component {
   }
 
   componentDidMount() {
-    if (this.props.game) {
-      this.setState({
-        holdCard: false
-      })
-    }
+    this.setState({
+      holdCard: false
+    })
   }
 
   holdCard = id => {
-    this.setState({
-      holdCard: !this.state.holdCard
-    })
+    if (this.props.game) {
+      this.setState({
+        holdCard: !this.state.holdCard
+      })
+    }
+    
 
     this.props.toggleCard(id);
   }
@@ -62,41 +63,33 @@ export default class Card extends Component {
     return (
       <div id="card-container">
        
-        <section 
-          id="card"
-          // onClick={() => this.props.toggleCard(this.props.card)}
-          onClick={() => this.holdCard(this.props.id)}
-        >
-          
-          {/* {this.props.card} */}
-          {/* <img src={suitImg} /> */}
+        <div 
+          id="card" 
+          onClick={() => this.holdCard(this.props.id)}>
+
           {suit === 'D' || suit === 'H' ?
 
-          <div>
-            {face === '11' || face === '12' || face === '13' || face === '14' ?
-              <span style={{color: 'red'}}>{faceImg}</span> : <span style={{color: 'red'}}>{face}</span>
-            }
-            <span style={{color: 'red'}}>{suitImg}</span>
-          </div>
+            <div>
+              {face === '11' || face === '12' || face === '13' || face === '14' ?
+                <span style={{color: 'red'}}>{faceImg}</span> : <span style={{color: 'red'}}>{face}</span>
+              }
+              <span style={{color: 'red'}}>{suitImg}</span>
+            </div>
 
           :
 
-          <div>
-            { face === '11' || face === '12' || face === '13' || face === '14' ? <span>{faceImg}</span> : <span>{face}</span> }            
-            <span>{suitImg}</span>
-          </div>
+            <div>
+              { face === '11' || face === '12' || face === '13' || face === '14' ? <span>{faceImg}</span> : <span>{face}</span> }            
+              <span>{suitImg}</span>
+            </div>
           
           }
-          
-          
-        </section>
+        </div>
 
-        <section id="card-status">
-          {this.state.holdCard && this.props.game &&
-            <p id="card-hold">HOLD</p>
-          }
-        </section>
-         
+        <div id="card-status">
+          {this.state.holdCard && this.props.game && <p id="card-hold">HOLD</p>}
+        </div>
+
       </div>
     )
   }

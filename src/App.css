@@ -1,6 +1,21 @@
 .App {
     /* border: 1px solid red; */
     width: 70%;
-    margin: 0 auto;
+    margin: 10rem auto;
     box-sizing: border-box;
+    font-family: "Futura";
+
 }
+
+.score-container {
+    text-align: center;
+    margin-top: 5rem;
+}
+
+.btn-container {
+    text-align: center;
+}
+
+/* #user-component {
+    border: 1px solid blue;
+} */

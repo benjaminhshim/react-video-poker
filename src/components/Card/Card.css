@@ -1,6 +1,6 @@
 #card-container {
   display: inline-block;
-  margin-left: 20px;
+  margin: 0px 0.5rem;
   width: 50%;
   min-height: 350px;
   max-height: auto;
@@ -14,19 +14,27 @@
   display: flex;
   align-items: center;
   justify-content: space-around;
-  box-shadow: 0px 4px 2px -1px gray;
+  box-shadow: 0px 4px 2px -1px black;
+  background: white;
+}
+#card-container #card:hover {
+  cursor: pointer;
 }
 #card-container span {
-  font-size: 2rem;
+  font-size: 4rem;
 }
 #card-container #card-status {
-  border: 1px solid black;
+  border: 2px solid red;
   margin-top: 1rem;
   width: auto;
   min-height: 3rem;
+  max-height: 3rem;
+  background: yellow;
 }
 #card-container #card-status #card-hold {
   text-align: center;
+  font-size: 2rem;
+  margin-bottom: 0;
 }
 
 /*# sourceMappingURL=Card.css.map */

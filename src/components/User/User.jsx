@@ -15,7 +15,7 @@ export default class User extends Component {
               key={i}
               id={this.props.userCards.indexOf(i)}
               toggleCard={this.props.toggleCard}
-              holdCard={this.props.holdCard}
+              // holdCard={this.props.holdCard}
               game={this.props.game}
             />
           ))}

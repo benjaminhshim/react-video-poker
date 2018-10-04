@@ -1,6 +1,7 @@
 #user-cards-container {
   display: flex;
   justify-content: space-around;
+  height: 350px;
 }
 
 /*# sourceMappingURL=User.css.map */
