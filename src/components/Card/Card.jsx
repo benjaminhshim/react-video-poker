@@ -46,16 +46,15 @@ export default class Card extends Component {
       case '13':
         faceImg = 'K';
         break;
-      default:
+      case '14':
         faceImg = 'A';
+        break;
     }
 
     return (
       <div id="card-container">
-        {this.state.holdCard && this.props.game &&
-         <p>HOLD</p>
-        }
-        <div 
+       
+        <section 
           id="card"
           // onClick={() => this.props.toggleCard(this.props.card)}
           onClick={() => this.holdCard(this.props.id)}
@@ -66,21 +65,37 @@ export default class Card extends Component {
           {suit === 'D' || suit === 'H' ?
 
           <div>
-            <span style={{color: 'red'}}>{face}</span>
+
+            {face === '11' || face === '12' || face === '13' || face === '14' ?
+              <span style={{color: 'red'}}>{faceImg}</span>
+              :
+              <span style={{color: 'red'}}>{face}</span>
+            }
             <span style={{color: 'red'}}>{suitImg}</span>
+
           </div>
 
           :
 
           <div>
-            <span>{face}</span>
+
+            {face === '11' || face === '12' || face === '13' || face === '14' ?
+              <span>{faceImg}</span>
+            :
+              <span>{face}</span>
+            }            
             <span>{suitImg}</span>
+
           </div>
           
           }
           
           
-        </div>
+        </section>
+
+         {this.state.holdCard && this.props.game &&
+          <p id="card-hold">HOLD</p>
+        }
       </div>
     )
   }

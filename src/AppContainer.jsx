@@ -18,6 +18,7 @@ export default class AppContainer extends Component {
     }
 
     componentDidMount() {
+        // SHUFFLE CARDS WHEN GAME STARTS
         this.shuffleCards();
     }
 
@@ -26,16 +27,20 @@ export default class AppContainer extends Component {
         const cardFace = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
         const deck = [];
 
+        //LOOP THROUGH SUITS AND FACES AND PUSH TO DECK
         for (let i = 0; i < cardFace.length; i++) {
             for (let j = 0; j < cardSuit.length; j++) {
                 deck.push(cardFace[i] + cardSuit[j]);
             }
         }
+
+        // SHUFFLE ARRAY OF CARDS AND SET STATE
         deck.sort((a, b) => 0.5 - Math.random());
         this.setState({deck})
     }
 
     dealCards = () => {
+        // DISPLAY FIRST FIVE CARDS TO USER
         const userHand = this.state.deck.splice(0,5);
         const userArray = [];
         userHand.forEach(i => {
@@ -44,16 +49,18 @@ export default class AppContainer extends Component {
         })
 
         console.log(userArray);
-
+        // SET STATE OF USER HAND AND START GAME
         this.setState({
             user: [...userArray],
-            game: true
+            game: true 
         })
     }
 
     newHand = () => {
         console.log('new hand');
         this.shuffleCards();
+        
+
         this.setState({
             game: false,
             card1: false,
@@ -63,19 +70,22 @@ export default class AppContainer extends Component {
             card5: false
         })
 
+        // CHECK WHICH CARDS ARE HELD BY USER
         var holdArr = [this.state.card1, this.state.card2, this.state.card3, this.state.card4, this.state.card5];
         console.log(holdArr);
 
         for(let i = 0; i < holdArr.length; i++) {
             const newCard = this.state.deck.splice(0, 1);
-            if (holdArr[i]) {
-                console.log(i);
+            // REMOVE CARD IF ITS STATE IS FALSE
+            if (!holdArr[i]) {
+                // console.log(i);
                 this.state.user.splice(i, 1, ...newCard);
             }
         }
 
         console.log(this.state.user);
 
+        // CHECK FOR A WIN
         this.check();
     }
 
@@ -106,7 +116,6 @@ export default class AppContainer extends Component {
     // }
 
     toggleCard = id => {
-        // console.log(id);
         if (this.state.game) {
             switch(id) {
                 case 0:
@@ -134,13 +143,14 @@ export default class AppContainer extends Component {
                         card5: !this.state.card5
                     })
                 break;
-                
             }
         }
-       
     }
     
     check = () => {
+
+        // REMOVE VALUES FROM SUITS TO LOOK FOR
+            // PAIRS OR STRAIGHT
         const faceArr = [];
 
         this.state.user.forEach(i => {
@@ -149,12 +159,15 @@ export default class AppContainer extends Component {
             let suit = i.slice(i.length - 1);
         });
 
+        // SORT THE ARRAY OF NUMBER VALUES AND CHECK FOR DUPLICATES
         const checkStraight = faceArr.sort((a, b) => a - b);
-
-
         for (let i = 0; i < checkStraight.length; i++) {
             if (checkStraight[i] === checkStraight[i + 1]) {
                 console.log('pair!');
+
+                // UPDATE SCORE
+                const score = this.state.score += 100;
+                this.setState({score})
             }
         }
     }
