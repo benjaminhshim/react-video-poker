@@ -7,20 +7,11 @@ export default class Card extends Component {
     holdCard: false
   }
 
-  componentDidMount() {
-    this.setState({
-      holdCard: false
-    })
-  }
-
   holdCard = id => {
     if (this.props.game) {
-      this.setState({
-        holdCard: !this.state.holdCard
-      })
+      this.setState({ holdCard: !this.state.holdCard})
     }
     
-
     this.props.toggleCard(id);
   }
 

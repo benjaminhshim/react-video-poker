@@ -9,13 +9,11 @@ export default class User extends Component {
       <div id="user-component">
         <div id="user-cards-container">
           {this.props.userCards.map(i => (
-            
             <Card 
               card={i} 
               key={i}
               id={this.props.userCards.indexOf(i)}
               toggleCard={this.props.toggleCard}
-              // holdCard={this.props.holdCard}
               game={this.props.game}
             />
           ))}

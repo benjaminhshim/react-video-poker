@@ -10,7 +10,7 @@ body {
   /* background: url('./assets/images/poker-table.jpg');
   background-repeat: no-repeat;
   background-size: cover; */
-  background: blue!important;
+  background: rgb(17, 17, 122)!important;
 }
 
 code {

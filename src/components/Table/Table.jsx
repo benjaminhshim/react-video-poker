@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './Table.css';
 
 import {Button} from 'mdbreact';
 
@@ -9,14 +10,14 @@ export default class Table extends Component {
         {this.props.game ? 
         <Button 
           id="go-btn"
-          color="danger"
+          color="success"
           onClick={this.props.newHand}>
           GO
         </Button>
       :
         <Button 
           id="deal-btn"
-          color="yellow"
+          color="danger"
           onClick={this.props.dealCards}>
           DEAL
         </Button>

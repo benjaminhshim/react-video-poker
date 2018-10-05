@@ -1,7 +1,7 @@
 .App {
     /* border: 1px solid red; */
     width: 70%;
-    margin: 10rem auto;
+    margin: 6rem auto;
     box-sizing: border-box;
     font-family: "Futura";
 
@@ -9,10 +9,11 @@
 
 .score-container {
     text-align: center;
-    margin-top: 5rem;
+    margin-bottom: 2rem;
 }
 
 .btn-container {
+    margin-top: 6rem;
     text-align: center;
 }
 

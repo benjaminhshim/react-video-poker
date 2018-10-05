@@ -2,8 +2,8 @@
   display: inline-block;
   margin: 0px 0.5rem;
   width: 50%;
-  min-height: 350px;
-  max-height: auto;
+  height: 350px;
+  min-height: auto;
 }
 #card-container #card {
   display: inline-block;
